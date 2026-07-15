@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
-import profileAsset from "../assets/profile-transparent.png.asset.json";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -68,7 +67,7 @@ const Navbar = () => {
     <>
       <div className="header">
         <a href="#landingDiv" className="navbar-title navbar-avatar" data-cursor="disable" aria-label="Home">
-          <img src={profileAsset.url} alt="Shakeel Ahmed" />
+          <img src={`${import.meta.env.BASE_URL}images/mypicnbg.png`} alt="Shakeel Ahmed" />
         </a>
         <a
           href="mailto:s03072637158@gmail.com"
