@@ -10,6 +10,12 @@ const MyWorks = lazy(() => import("./pages/MyWorks"));
 const Play = lazy(() => import("./pages/Play"));
 import { LoadingProvider } from "./context/LoadingProvider";
 
+const shouldRenderVercelInsights =
+  typeof window !== "undefined" &&
+  !window.location.hostname.includes("github.io") &&
+  !window.location.hostname.includes("localhost") &&
+  !window.location.hostname.includes("127.0.0.1");
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -45,8 +51,13 @@ const App = () => {
           }
         />
       </Routes>
-      <Analytics />
-      <SpeedInsights />
+
+      {shouldRenderVercelInsights && (
+        <>
+          <Analytics />
+          <SpeedInsights />
+        </>
+      )}
     </BrowserRouter>
   );
 };
