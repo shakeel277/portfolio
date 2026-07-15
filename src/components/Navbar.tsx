@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
-import { TbNotes } from "react-icons/tb";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -91,18 +90,6 @@ const Navbar = () => {
           <li>
             <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
-            </a>
-          </li>
-          <li className="navbar-resume-container">
-            <a
-              href={`${import.meta.env.BASE_URL}ShakeelResume.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="navbar-resume-btn"
-              data-cursor="disable"
-            >
-              <TbNotes className="resume-icon" />
-              <span>RESUME</span>
             </a>
           </li>
         </ul>
