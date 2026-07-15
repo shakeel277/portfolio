@@ -55,10 +55,6 @@ const Landing = ({ children }: PropsWithChildren) => {
             <div ref={wrapperRef} className="landing-portrait-wrapper">
               <div className="portrait-ambient-glow" aria-hidden="true" />
               <div className="portrait-radial-light" aria-hidden="true" />
-              <div className="portrait-offset-frame portrait-offset-frame--violet" aria-hidden="true" />
-              <div className="portrait-offset-frame portrait-offset-frame--cyan" aria-hidden="true" />
-              <div className="portrait-geometric-accent" aria-hidden="true" />
-              <div className="portrait-accent-square" aria-hidden="true" />
               <div
                 ref={portraitRef}
                 className="landing-portrait"
@@ -67,6 +63,23 @@ const Landing = ({ children }: PropsWithChildren) => {
                 onMouseMove={handleMove}
                 onMouseLeave={handleLeave}
               >
+                {/* Premium futuristic frame layers */}
+                <div className="futuristic-frame-border" />
+                <div className="futuristic-frame-glass" />
+                
+                {/* Floating glass corner brackets */}
+                <div className="corner-bracket corner-bracket--tl" />
+                <div className="corner-bracket corner-bracket--tr" />
+                <div className="corner-bracket corner-bracket--bl" />
+                <div className="corner-bracket corner-bracket--br" />
+
+                {/* Glowing accent nodes */}
+                <div className="accent-node accent-node--tl" />
+                <div className="accent-node accent-node--br" />
+
+                {/* Holographic reflection overlay */}
+                <div className="holographic-reflection" />
+
                 <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
               </div>
             </div>
