@@ -665,75 +665,102 @@ h2.landing-info-h2 {
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* Floating glass corner brackets on all four corners */
-.corner-bracket {
+/* Floating unique HUD corner decorations style */
+.hud-corner {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(0, 212, 255, 0.6);
-  z-index: 6;
   pointer-events: none;
-  transition: border-color 250ms ease, transform 250ms ease;
+  z-index: 6;
+  transition: transform 250ms ease, opacity 250ms ease;
 }
 
-.corner-bracket--tl {
-  top: -5px;
-  left: -5px;
-  border-right: none;
-  border-bottom: none;
-  border-top-left-radius: 8px;
-  box-shadow: -2px -2px 6px rgba(0, 212, 255, 0.15);
+/* Top-left: floating glass square with a glowing node */
+.hud-corner--top-left {
+  top: -8px;
+  left: -8px;
 }
-
-.corner-bracket--tr {
-  top: -5px;
-  right: -5px;
-  border-left: none;
-  border-bottom: none;
-  border-top-right-radius: 8px;
-  box-shadow: 2px -2px 6px rgba(0, 212, 255, 0.15);
+.hud-corner--top-left .glass-square {
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(139, 92, 246, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+  transition: all 250ms ease;
 }
-
-.corner-bracket--bl {
-  bottom: -5px;
-  left: -5px;
-  border-right: none;
-  border-top: none;
-  border-bottom-left-radius: 8px;
-  box-shadow: -2px 2px 6px rgba(0, 212, 255, 0.15);
-}
-
-.corner-bracket--br {
-  bottom: -5px;
-  right: -5px;
-  border-left: none;
-  border-top: none;
-  border-bottom-right-radius: 8px;
-  box-shadow: 2px 2px 6px rgba(0, 212, 255, 0.15);
-}
-
-/* Small glowing accent nodes at the top-left and bottom-right corners */
-.accent-node {
-  position: absolute;
+.hud-corner--top-left .glowing-node {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  z-index: 7;
-  pointer-events: none;
+  background: #8B5CF6;
+  box-shadow: 0 0 8px #8B5CF6, 0 0 15px #8B5CF6;
 }
 
-.accent-node--tl {
-  top: -7px;
-  left: -7px;
-  background-color: #00D4FF;
-  box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
+/* Top-right: curved neon cyber corner */
+.hud-corner--top-right {
+  top: -6px;
+  right: -6px;
+}
+.hud-corner--top-right .cyber-curve {
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid #00D4FF;
+  border-right: 2px solid #00D4FF;
+  border-top-right-radius: 12px;
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.65));
+}
+.hud-corner--top-right .cyber-dot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 3px;
+  height: 3px;
+  background: #00D4FF;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00D4FF;
 }
 
-.accent-node--br {
-  bottom: -7px;
-  right: -7px;
-  background-color: #8B5CF6;
-  box-shadow: 0 0 10px #8B5CF6, 0 0 20px #8B5CF6;
+/* Bottom-left: minimal L-shaped glowing corner */
+.hud-corner--bottom-left {
+  bottom: -6px;
+  left: -6px;
+}
+.hud-corner--bottom-left .l-bracket {
+  width: 18px;
+  height: 18px;
+  border-bottom: 2px solid #8B5CF6;
+  border-left: 2px solid #8B5CF6;
+  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.65));
+}
+
+/* Bottom-right: floating glass square with cyan glow */
+.hud-corner--bottom-right {
+  bottom: -8px;
+  right: -8px;
+}
+.hud-corner--bottom-right .glass-square-cyan {
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(0, 212, 255, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+  transition: all 250ms ease;
+}
+.hud-corner--bottom-right .cyan-pixel {
+  width: 5px;
+  height: 5px;
+  background: #00D4FF;
+  box-shadow: 0 0 6px #00D4FF, 0 0 12px #00D4FF;
 }
 
 /* Faint holographic reflection that moves slightly on hover */
@@ -785,9 +812,18 @@ h2.landing-info-h2 {
   box-shadow: 0 0 24px rgba(139, 92, 246, 0.45), 0 0 10px rgba(0, 212, 255, 0.25);
 }
 
-.landing-portrait:hover .corner-bracket {
-  border-color: rgba(0, 212, 255, 0.95);
-  transform: scale(1.05);
+.landing-portrait:hover .hud-corner {
+  transform: scale(1.06);
+}
+
+.landing-portrait:hover .hud-corner--top-left .glass-square {
+  border-color: rgba(139, 92, 246, 0.85);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.45);
+}
+
+.landing-portrait:hover .hud-corner--bottom-right .glass-square-cyan {
+  border-color: rgba(0, 212, 255, 0.85);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.45);
 }
 
 .landing-portrait:hover img {

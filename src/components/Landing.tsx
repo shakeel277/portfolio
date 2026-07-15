@@ -67,15 +67,31 @@ const Landing = ({ children }: PropsWithChildren) => {
                 <div className="futuristic-frame-border" />
                 <div className="futuristic-frame-glass" />
                 
-                {/* Floating glass corner brackets */}
-                <div className="corner-bracket corner-bracket--tl" />
-                <div className="corner-bracket corner-bracket--tr" />
-                <div className="corner-bracket corner-bracket--bl" />
-                <div className="corner-bracket corner-bracket--br" />
+                {/* Floating unique HUD corner decorations */}
+                {/* Top-left: floating glass square with a glowing node */}
+                <div className="hud-corner hud-corner--top-left">
+                  <div className="glass-square">
+                    <span className="glowing-node" />
+                  </div>
+                </div>
 
-                {/* Glowing accent nodes */}
-                <div className="accent-node accent-node--tl" />
-                <div className="accent-node accent-node--br" />
+                {/* Top-right: curved neon cyber corner */}
+                <div className="hud-corner hud-corner--top-right">
+                  <div className="cyber-curve" />
+                  <span className="cyber-dot" />
+                </div>
+
+                {/* Bottom-left: minimal L-shaped glowing corner */}
+                <div className="hud-corner hud-corner--bottom-left">
+                  <div className="l-bracket" />
+                </div>
+
+                {/* Bottom-right: floating glass square with cyan glow */}
+                <div className="hud-corner hud-corner--bottom-right">
+                  <div className="glass-square-cyan">
+                    <span className="cyan-pixel" />
+                  </div>
+                </div>
 
                 {/* Holographic reflection overlay */}
                 <div className="holographic-reflection" />
