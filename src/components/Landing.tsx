@@ -96,7 +96,10 @@ const Landing = ({ children }: PropsWithChildren) => {
                 {/* Holographic reflection overlay */}
                 <div className="holographic-reflection" />
 
-                <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
+                {/* Inner image container layer */}
+                <div className="inner-image-container">
+                  <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
+                </div>
               </div>
             </div>
           </div>
