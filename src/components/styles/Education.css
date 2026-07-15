@@ -1,0 +1,138 @@
+.education-section {
+  width: 100%;
+  padding: 120px 0 80px;
+  position: relative;
+  z-index: 5;
+}
+
+.edu-container {
+  max-width: 1200px;
+  width: var(--cWidth);
+  margin: 0 auto;
+}
+
+.edu-heading {
+  font-size: clamp(36px, 5vw, 70px);
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.edu-heading span {
+  color: var(--accentColor);
+}
+
+.edu-sub {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 50px;
+  max-width: 620px;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.edu-card {
+  position: relative;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: visible;
+  box-sizing: border-box;
+  height: auto;
+  min-height: fit-content;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(194,164,255,0.35), transparent 60%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.edu-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(194, 164, 255, 0.45);
+  box-shadow: 0 20px 45px rgba(139, 92, 246, 0.25);
+}
+
+.edu-year {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  background: rgba(194, 164, 255, 0.12);
+  border: 1px solid rgba(194, 164, 255, 0.3);
+  padding: 5px 12px;
+  border-radius: 30px;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+.edu-degree {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 4px 0 0;
+  font-weight: 600;
+  color: #fff;
+}
+
+.edu-grade {
+  color: var(--accentColor);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.edu-institution {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.edu-board {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.edu-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 8px 0 0;
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 768px) {
+  .education-section {
+    padding: 80px 0 40px;
+  }
+  .edu-card {
+    padding: 26px;
+  }
+  .edu-degree {
+    font-size: 19px;
+  }
+}
