@@ -596,7 +596,7 @@ h2.landing-info-h2 {
 .landing-circle1,
 .landing-circle2 { display: none !important; }
 
-/* Premium editorial hero portrait composition - Ultra Premium Apple-inspired Liquid Glass */
+/* Premium editorial hero portrait composition */
 .landing-portrait-wrapper {
   position: relative;
   display: flex;
@@ -606,160 +606,188 @@ h2.landing-info-h2 {
   --py: 0px;
   --px2: 0px;
   --py2: 0px;
-  animation: landing-portrait-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both, liquid-glass-float 8s ease-in-out infinite;
+  animation: landing-portrait-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: transform, opacity;
 }
 
-/* Base Frame / Liquid Glass */
+/* Soft ambient glow behind the portrait */
+.portrait-ambient-glow {
+  position: absolute;
+  width: 150%;
+  height: 130%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate(var(--px2), var(--py2));
+  background: radial-gradient(
+    circle at 42% 44%,
+    rgba(168, 130, 255, 0.26) 0%,
+    rgba(100, 210, 255, 0.12) 45%,
+    transparent 72%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+  z-index: 0;
+  animation: portrait-glow-pulse 6s ease-in-out infinite;
+}
+
+/* Blurred radial accent light */
+.portrait-radial-light {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  top: 8%;
+  right: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.42) 0%, transparent 66%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: -1;
+  transform: translate(var(--px), var(--py));
+  animation: portrait-light-drift 8s ease-in-out infinite;
+}
+
+/* Thin offset outline frames behind the photo */
+.portrait-offset-frame {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 22px;
+  transition: transform 0.35s ease;
+}
+
+.portrait-offset-frame--violet {
+  width: calc(100% + 34px);
+  height: calc(100% + 34px);
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 16px), calc(-50% - 16px)) translate(var(--px), var(--py));
+  border: 1.5px solid rgba(168, 130, 255, 0.55);
+  box-shadow: 0 0 34px rgba(168, 130, 255, 0.18);
+  opacity: 0.85;
+}
+
+.portrait-offset-frame--cyan {
+  width: calc(100% + 56px);
+  height: calc(100% + 56px);
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 20px), calc(-50% + 20px)) translate(var(--px2), var(--py2));
+  border: 1px solid rgba(100, 210, 255, 0.42);
+  box-shadow: 0 0 26px rgba(100, 210, 255, 0.14);
+  opacity: 0.65;
+}
+
+/* Floating geometric accent — rotated square outline */
+.portrait-geometric-accent {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  top: -7%;
+  left: -11%;
+  border: 1.5px solid rgba(168, 130, 255, 0.58);
+  border-radius: 14px;
+  transform: rotate(18deg) translate(var(--px2), var(--py2));
+  pointer-events: none;
+  z-index: 2;
+  animation: portrait-geo-float 7s ease-in-out infinite;
+  box-shadow: 0 0 22px rgba(168, 130, 255, 0.14);
+}
+
+/* Small premium accent square */
+.portrait-accent-square {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  bottom: 9%;
+  right: -7%;
+  background: linear-gradient(135deg, rgba(100, 210, 255, 0.92), rgba(168, 130, 255, 0.92));
+  border-radius: 4px;
+  transform: translate(var(--px), var(--py));
+  pointer-events: none;
+  z-index: 2;
+  animation: portrait-accent-pulse 4s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(100, 210, 255, 0.32);
+}
+
+/* Main passport portrait */
 .landing-portrait {
   --tiltX: 0deg;
   --tiltY: 0deg;
   position: relative;
   height: clamp(380px, 42vh, 420px);
   width: auto;
-  aspect-ratio: 1/1; /* Ensure circular shape for image */
-  z-index: 5;
+  max-width: 90vw;
+  z-index: 3;
   transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 900px;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 
-    0 30px 60px rgba(0,0,0,0.4),
-    inset 0 0 0 1px rgba(255,255,255,0.2),
-    inset 0 0 20px rgba(255,255,255,0.05),
-    0 0 40px rgba(139, 92, 246, 0.3),
-    0 0 80px rgba(34, 211, 238, 0.2);
-}
-
-.landing-portrait::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(168,85,247,0.8), rgba(34,211,238,0.8), rgba(168,85,247,0.8));
-  background-size: 200% 200%;
-  z-index: -1;
-  animation: liquid-border-flow 6s linear infinite;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 2px;
+  animation: landing-portrait-float 6s ease-in-out infinite;
 }
 
 .landing-portrait img {
   height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
-  transform: translateZ(30px);
+  transform: translateZ(24px);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Crystal reflection */
-.landing-portrait::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.4) 25%, transparent 30%);
-  background-size: 200% 200%;
-  pointer-events: none;
-  z-index: 10;
-  animation: crystal-shine 8s ease-in-out infinite;
-  mix-blend-mode: overlay;
-  transform: translateZ(40px);
-}
-
-/* Hover tilt */
 .landing-portrait:hover {
-  transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) scale(1.05);
-  box-shadow: 
-    0 40px 80px rgba(0,0,0,0.5),
-    inset 0 0 0 1px rgba(255,255,255,0.3),
-    inset 0 0 30px rgba(255,255,255,0.1),
-    0 0 60px rgba(139, 92, 246, 0.5),
-    0 0 100px rgba(34, 211, 238, 0.4);
+  transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) scale(1.02);
 }
 
 .landing-portrait:hover img {
-  transform: translateZ(50px);
+  transform: translateZ(40px);
 }
 
-/* Neon Aura */
-.portrait-ambient-glow {
-  position: absolute;
-  width: 160%;
-  height: 160%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.4) 0%, rgba(34, 211, 238, 0.2) 30%, transparent 60%);
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 0;
-  animation: neon-aura-pulse 5s ease-in-out infinite alternate;
+/* Keyframes */
+@keyframes landing-portrait-float {
+  0%, 100% { transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateY(0); }
+  50%      { transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateY(-10px); }
 }
 
-/* Holographic shimmer lines */
-.portrait-radial-light {
-  position: absolute;
-  width: 120%;
-  height: 120%;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.1);
-  transform: translate(-50%, -50%) rotate(0deg);
-  pointer-events: none;
-  z-index: 1;
-  animation: holo-spin 15s linear infinite;
-  box-shadow: inset 0 0 20px rgba(34,211,238,0.2), 0 0 20px rgba(168,85,247,0.2);
+@keyframes landing-portrait-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.portrait-offset-frame--violet, .portrait-offset-frame--cyan, .portrait-geometric-accent, .portrait-accent-square {
-  display: none !important; /* Hide old elements */
+@keyframes portrait-glow-pulse {
+  0%, 100% { opacity: 0.75; transform: translate(-50%, -50%) translate(var(--px2), var(--py2)) scale(1); }
+  50%      { opacity: 1; transform: translate(-50%, -50%) translate(var(--px2), var(--py2)) scale(1.06); }
 }
 
-@keyframes liquid-glass-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+@keyframes portrait-light-drift {
+  0%, 100% { transform: translate(var(--px), var(--py)) translate(0, 0); }
+  50%      { transform: translate(var(--px), var(--py)) translate(-8px, 10px); }
 }
 
-@keyframes liquid-border-flow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+@keyframes portrait-geo-float {
+  0%, 100% { transform: rotate(18deg) translate(var(--px2), var(--py2)) translateY(0); }
+  50%      { transform: rotate(18deg) translate(var(--px2), var(--py2)) translateY(-12px); }
 }
 
-@keyframes crystal-shine {
-  0%, 100% { background-position: 200% center; }
-  50% { background-position: -200% center; }
-}
-
-@keyframes neon-aura-pulse {
-  0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.95); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
-}
-
-@keyframes holo-spin {
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes portrait-accent-pulse {
+  0%, 100% { opacity: 0.7; transform: translate(var(--px), var(--py)) scale(1); }
+  50%      { opacity: 1; transform: translate(var(--px), var(--py)) scale(1.15); }
 }
 
 /* Responsive heights */
 @media (max-width: 1024px) {
   .landing-portrait { height: clamp(320px, 40vh, 360px); }
+  .portrait-radial-light { width: 150px; height: 150px; }
 }
 
 @media (max-width: 768px) {
@@ -767,6 +795,19 @@ h2.landing-info-h2 {
     margin: 0 auto;
     height: clamp(260px, 38vh, 300px);
   }
+  .mobile-photo { display: none !important; }
+  .portrait-offset-frame--violet {
+    width: calc(100% + 26px);
+    height: calc(100% + 26px);
+    transform: translate(calc(-50% + 10px), calc(-50% - 10px)) translate(var(--px), var(--py));
+  }
+  .portrait-offset-frame--cyan {
+    width: calc(100% + 42px);
+    height: calc(100% + 42px);
+    transform: translate(calc(-50% - 14px), calc(-50% + 14px)) translate(var(--px2), var(--py2));
+  }
+  .portrait-geometric-accent { width: 38px; height: 38px; top: -5%; left: -7%; }
+  .portrait-accent-square { width: 11px; height: 11px; right: -5%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -775,7 +816,9 @@ h2.landing-info-h2 {
   }
   .landing-portrait,
   .portrait-ambient-glow,
-  .portrait-radial-light {
+  .portrait-radial-light,
+  .portrait-geometric-accent,
+  .portrait-accent-square {
     animation: none;
   }
   .landing-portrait { transform: none; }
