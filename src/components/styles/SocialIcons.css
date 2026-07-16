@@ -55,39 +55,15 @@
   letter-spacing: 4px;
   font-size: 15px;
   line-height: 15px;
-  font-weight: 800;
-  color: #ccc;
+  font-weight: 600;
+  color: #5e5e5e;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: 0.5s;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
-
-  /* Glowing purple background */
-  background: rgba(194, 164, 255, 0.06);
-  padding: 8px 16px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(194, 164, 255, 0.15);
-
-  /* Subtle animated border */
-  border: 1px solid rgba(194, 164, 255, 0.2);
-  animation: borderGlow 3s infinite ease-in-out;
 }
 .resume-button:hover {
   color: #fff;
-  transform: translateX(100%) rotateZ(-90deg) scale(1.05);
-  background: rgba(194, 164, 255, 0.12);
-  box-shadow: 0 0 20px rgba(194, 164, 255, 0.45);
-  border-color: rgba(194, 164, 255, 0.6);
-}
-@keyframes borderGlow {
-  0%, 100% {
-    border-color: rgba(194, 164, 255, 0.2);
-    box-shadow: 0 0 10px rgba(194, 164, 255, 0.1);
-  }
-  50% {
-    border-color: rgba(194, 164, 255, 0.45);
-    box-shadow: 0 0 15px rgba(194, 164, 255, 0.25);
-  }
 }
 div.resume-button span {
   color: #fff;
@@ -119,9 +95,6 @@ div.resume-button span {
     transform: none;
     font-size: 20px;
     line-height: 20px;
-  }
-  .resume-button:hover {
-    transform: scale(1.05);
   }
   div.resume-button span {
     font-size: 23px;

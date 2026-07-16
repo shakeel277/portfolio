@@ -350,3 +350,29 @@
     font-size: 14px;
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .work-title {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  
+  .work-title > div {
+    text-align: left !important;
+  }
+
+  .work-box {
+    padding: 24px 15px !important;
+    gap: 16px !important;
+  }
+
+  .work-section h2 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    margin-top: 30px !important;
+  }
+
+  .work-image img {
+    max-height: 180px !important;
+  }
+}

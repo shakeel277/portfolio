@@ -1,22 +1,23 @@
 .about-section {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   place-items: center;
   position: relative;
   opacity: 1;
   height: auto;
-  width: var(--cWidth);
+  width: 100%;
+  max-width: 100%;
   margin: auto;
+  padding: 0 15px;
 }
 .about-me {
-  padding: 40px 0px;
-  padding-bottom: 0;
+  padding: 60px 0px;
   width: 100%;
-  max-width: calc(100% - 15px);
+  max-width: 100%;
 }
 .about-me h3 {
-  font-size: 18px;
+  font-size: clamp(14px, 3.5vw, 18px);
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 400;
@@ -25,11 +26,13 @@
 }
 
 .about-me p {
-  font-size: 20px;
+  font-size: clamp(18px, 4.5vw, 24px);
   font-weight: 600;
-  line-height: 26px;
+  line-height: 1.45;
   letter-spacing: 0.5px;
-  word-spacing: 2px;
+  word-spacing: 1px;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .about-me .split-word {

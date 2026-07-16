@@ -55,6 +55,10 @@ const Landing = ({ children }: PropsWithChildren) => {
             <div ref={wrapperRef} className="landing-portrait-wrapper">
               <div className="portrait-ambient-glow" aria-hidden="true" />
               <div className="portrait-radial-light" aria-hidden="true" />
+              <div className="portrait-offset-frame portrait-offset-frame--violet" aria-hidden="true" />
+              <div className="portrait-offset-frame portrait-offset-frame--cyan" aria-hidden="true" />
+              <div className="portrait-geometric-accent" aria-hidden="true" />
+              <div className="portrait-accent-square" aria-hidden="true" />
               <div
                 ref={portraitRef}
                 className="landing-portrait"
@@ -63,49 +67,13 @@ const Landing = ({ children }: PropsWithChildren) => {
                 onMouseMove={handleMove}
                 onMouseLeave={handleLeave}
               >
-                {/* Premium futuristic frame layers */}
-                <div className="futuristic-frame-border" />
-                <div className="futuristic-frame-glass" />
-                
-                {/* Floating unique HUD corner decorations */}
-                {/* Top-left: floating glass square with a glowing node */}
-                <div className="hud-corner hud-corner--top-left">
-                  <div className="glass-square">
-                    <span className="glowing-node" />
-                  </div>
-                </div>
-
-                {/* Top-right: curved neon cyber corner */}
-                <div className="hud-corner hud-corner--top-right">
-                  <div className="cyber-curve" />
-                  <span className="cyber-dot" />
-                </div>
-
-                {/* Bottom-left: minimal L-shaped glowing corner */}
-                <div className="hud-corner hud-corner--bottom-left">
-                  <div className="l-bracket" />
-                </div>
-
-                {/* Bottom-right: floating glass square with cyan glow */}
-                <div className="hud-corner hud-corner--bottom-right">
-                  <div className="glass-square-cyan">
-                    <span className="cyan-pixel" />
-                  </div>
-                </div>
-
-                {/* Holographic reflection overlay */}
-                <div className="holographic-reflection" />
-
-                {/* Inner image container layer */}
-                <div className="inner-image-container">
-                  <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
-                </div>
+                <img src="/images/mypic.jpeg" alt={config.developer.fullName} />
               </div>
             </div>
           </div>
           {/* Mobile photo - shows only on mobile when 3D character is hidden */}
           <div className="mobile-photo">
-            <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
+            <img src="/images/mypic.jpeg" alt={config.developer.fullName} />
           </div>
         </div>
         {children}
