@@ -58,8 +58,11 @@
   height: 36px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   padding: 0;
 }
 
@@ -72,8 +75,9 @@
 }
 
 .navbar-avatar:hover {
-  box-shadow: 0 0 18px rgba(139, 92, 246, 0.55);
-  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), inset 0 0 12px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Hamburger Button */

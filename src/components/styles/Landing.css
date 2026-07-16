@@ -27,10 +27,6 @@
     display: none !important;
   }
 
-  .landing-portrait-wrapper {
-    display: none !important;
-  }
-
   .landing-section,
   .landing-container {
     height: var(--vh) !important;
@@ -597,6 +593,7 @@ h2.landing-info-h2 {
 .landing-circle2 { display: none !important; }
 
 /* Premium editorial hero portrait composition */
+/* Premium editorial hero portrait composition - Ultra Premium Apple-inspired Liquid Glass */
 .landing-portrait-wrapper {
   position: relative;
   display: flex;
@@ -608,180 +605,120 @@ h2.landing-info-h2 {
   --py2: 0px;
   animation: landing-portrait-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: transform, opacity;
+  z-index: 10;
 }
 
-/* Soft ambient glow behind the portrait */
-.portrait-ambient-glow {
-  position: absolute;
-  width: 150%;
-  height: 130%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) translate(var(--px2), var(--py2));
-  background: radial-gradient(
-    circle at 42% 44%,
-    rgba(168, 130, 255, 0.26) 0%,
-    rgba(100, 210, 255, 0.12) 45%,
-    transparent 72%
-  );
-  filter: blur(46px);
-  pointer-events: none;
-  z-index: 0;
-  animation: portrait-glow-pulse 6s ease-in-out infinite;
-}
-
-/* Blurred radial accent light */
-.portrait-radial-light {
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  top: 8%;
-  right: -10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.42) 0%, transparent 66%);
-  filter: blur(30px);
-  pointer-events: none;
-  z-index: -1;
-  transform: translate(var(--px), var(--py));
-  animation: portrait-light-drift 8s ease-in-out infinite;
-}
-
-/* Thin offset outline frames behind the photo */
-.portrait-offset-frame {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
-  border-radius: 22px;
-  transition: transform 0.35s ease;
-}
-
-.portrait-offset-frame--violet {
-  width: calc(100% + 34px);
-  height: calc(100% + 34px);
-  top: 50%;
-  left: 50%;
-  transform: translate(calc(-50% + 16px), calc(-50% - 16px)) translate(var(--px), var(--py));
-  border: 1.5px solid rgba(168, 130, 255, 0.55);
-  box-shadow: 0 0 34px rgba(168, 130, 255, 0.18);
-  opacity: 0.85;
-}
-
-.portrait-offset-frame--cyan {
-  width: calc(100% + 56px);
-  height: calc(100% + 56px);
-  top: 50%;
-  left: 50%;
-  transform: translate(calc(-50% - 20px), calc(-50% + 20px)) translate(var(--px2), var(--py2));
-  border: 1px solid rgba(100, 210, 255, 0.42);
-  box-shadow: 0 0 26px rgba(100, 210, 255, 0.14);
-  opacity: 0.65;
-}
-
-/* Floating geometric accent — rotated square outline */
-.portrait-geometric-accent {
-  position: absolute;
-  width: 52px;
-  height: 52px;
-  top: -7%;
-  left: -11%;
-  border: 1.5px solid rgba(168, 130, 255, 0.58);
-  border-radius: 14px;
-  transform: rotate(18deg) translate(var(--px2), var(--py2));
-  pointer-events: none;
-  z-index: 2;
-  animation: portrait-geo-float 7s ease-in-out infinite;
-  box-shadow: 0 0 22px rgba(168, 130, 255, 0.14);
-}
-
-/* Small premium accent square */
-.portrait-accent-square {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  bottom: 9%;
-  right: -7%;
-  background: linear-gradient(135deg, rgba(100, 210, 255, 0.92), rgba(168, 130, 255, 0.92));
-  border-radius: 4px;
-  transform: translate(var(--px), var(--py));
-  pointer-events: none;
-  z-index: 2;
-  animation: portrait-accent-pulse 4s ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(100, 210, 255, 0.32);
-}
-
-/* Main passport portrait */
+/* Main passport portrait - Premium Apple Liquid Glass Frame */
 .landing-portrait {
   --tiltX: 0deg;
   --tiltY: 0deg;
   position: relative;
-  height: clamp(380px, 42vh, 420px);
-  width: auto;
-  max-width: 90vw;
+  height: clamp(280px, 40vh, 420px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   z-index: 3;
   transform-style: preserve-3d;
-  perspective: 900px;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  perspective: 1200px;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: landing-portrait-float 6s ease-in-out infinite;
+  
+  /* Apple Glass Base */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.3),
+    0 0 40px rgba(34, 211, 238, 0.2);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  padding: 8px;
+}
+
+/* Crystal reflection rotating mask */
+.landing-portrait::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    rgba(255,255,255,0.8) 0%, 
+    rgba(255,255,255,0.1) 20%, 
+    transparent 40%, 
+    rgba(139, 92, 246, 0.4) 60%, 
+    rgba(34, 211, 238, 0.8) 80%, 
+    rgba(255,255,255,0.9) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: portrait-shimmer-spin 6s linear infinite;
+}
+
+/* Neon Aura */
+.landing-portrait::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(34,211,238,0.15) 40%, transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+  animation: portrait-aura-pulse 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .landing-portrait img {
   height: 100%;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
-  transform: translateZ(24px);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateZ(30px);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: transform;
 }
 
 .landing-portrait:hover {
-  transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) scale(1.02);
+  transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) scale(1.05);
+  box-shadow: 
+    0 25px 45px rgba(0, 0, 0, 0.3),
+    inset 0 0 25px rgba(255, 255, 255, 0.15),
+    inset 0 2px 5px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(139, 92, 246, 0.5),
+    0 0 60px rgba(34, 211, 238, 0.3);
 }
 
 .landing-portrait:hover img {
-  transform: translateZ(40px);
+  transform: translateZ(50px);
 }
 
 /* Keyframes */
 @keyframes landing-portrait-float {
   0%, 100% { transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateY(0); }
-  50%      { transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateY(-10px); }
+  50%      { transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateY(-15px); }
 }
 
 @keyframes landing-portrait-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@keyframes portrait-glow-pulse {
-  0%, 100% { opacity: 0.75; transform: translate(-50%, -50%) translate(var(--px2), var(--py2)) scale(1); }
-  50%      { opacity: 1; transform: translate(-50%, -50%) translate(var(--px2), var(--py2)) scale(1.06); }
+@keyframes portrait-shimmer-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes portrait-light-drift {
-  0%, 100% { transform: translate(var(--px), var(--py)) translate(0, 0); }
-  50%      { transform: translate(var(--px), var(--py)) translate(-8px, 10px); }
-}
-
-@keyframes portrait-geo-float {
-  0%, 100% { transform: rotate(18deg) translate(var(--px2), var(--py2)) translateY(0); }
-  50%      { transform: rotate(18deg) translate(var(--px2), var(--py2)) translateY(-12px); }
-}
-
-@keyframes portrait-accent-pulse {
-  0%, 100% { opacity: 0.7; transform: translate(var(--px), var(--py)) scale(1); }
-  50%      { opacity: 1; transform: translate(var(--px), var(--py)) scale(1.15); }
+@keyframes portrait-aura-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.1); }
 }
 
 /* Responsive heights */

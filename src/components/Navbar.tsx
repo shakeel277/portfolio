@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
-import profileAsset from "../assets/profile-transparent.png.asset.json";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,12 +85,14 @@ const Navbar = () => {
       <div className={`header ${isMenuOpen ? "nav-open" : ""}`}>
         <a
           href="#landingDiv"
-          className="navbar-title navbar-avatar"
+          className="navbar-title"
           data-cursor="disable"
           aria-label="Home"
           onClick={(e) => handleLinkClick("#landingDiv", e)}
         >
-          <img src={profileAsset.url} alt="Shakeel Ahmed" />
+          <div className="navbar-avatar">
+            <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt="Shakeel Ahmed" />
+          </div>
         </a>
         <a
           href="mailto:s03072637158@gmail.com"

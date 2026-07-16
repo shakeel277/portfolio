@@ -198,6 +198,29 @@
   font-size: 14px;
   letter-spacing: 0.2px;
 }
+
+.loader-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.loader-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: logo-glow 3s infinite alternate;
+}
+
+@keyframes logo-glow {
+  0% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.2); }
+  100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), inset 0 0 12px rgba(255, 255, 255, 0.4); }
+}
 @keyframes blink {
   0% {
     opacity: 0;

@@ -45,9 +45,12 @@ const Loading = ({ percent }: { percent: number }) => {
   return (
     <>
       <div className="loading-header">
-        <a href="/#" className="loader-title" data-cursor="disable">
-          Shakeel Ahmed
-        </a>
+        <div className="loader-logo-container">
+          <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt="Shakeel Ahmed" className="loader-logo" />
+          <a href="/#" className="loader-title" data-cursor="disable">
+            Shakeel Ahmed
+          </a>
+        </div>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
             <div className="loaderGame-in">
