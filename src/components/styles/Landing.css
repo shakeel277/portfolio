@@ -1,7 +1,4 @@
-/* Mobile Photo - hidden by default, shown only on mobile */
-.mobile-photo {
-  display: none;
-}
+/* Mobile Photo removed */
 
 /* Ensure 3D character is properly styled and shown on mobile/tablet */
 @media only screen and (max-width: 767px) {
@@ -23,12 +20,8 @@
     display: none !important;
   }
 
-  .mobile-photo {
-    display: none !important;
-  }
-
   .landing-portrait-wrapper {
-    display: none !important;
+    /* Kept visible on mobile */
   }
 
   .landing-section,
@@ -148,12 +141,8 @@
     display: none !important;
   }
 
-  .mobile-photo {
-    display: none !important;
-  }
-
   .landing-portrait-wrapper {
-    display: none !important;
+    /* Kept visible on tablet */
   }
 
   .landing-section,
@@ -732,7 +721,8 @@ h2.landing-info-h2 {
   height: 100%;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
   transform: translateZ(24px);
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);

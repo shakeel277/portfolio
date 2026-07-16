@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import ProfileImage from "../components/ProfileImage";
 import { Chess, Square, PieceSymbol, Color } from "chess.js";
 import RedoxChessEngine from "../utils/redoxchessEngine";
 import "./Play.css";
@@ -365,8 +366,8 @@ const Play = () => {
           {/* Opponent Info - Top of Board */}
           <div className="player-bar opponent-bar">
             <div className="player-info">
-              <div className="player-avatar">
-                <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt="Shakeel" />
+              <div className="opponent-avatar">
+                <ProfileImage alt="Shakeel" />
               </div>
               <div className="player-details">
                 <span className="player-name">Shakeel</span>

@@ -1,6 +1,7 @@
 import { PropsWithChildren, useRef } from "react";
 import "./styles/Landing.css";
 import { config } from "../config";
+import ProfileImage from "./ProfileImage";
 
 const Landing = ({ children }: PropsWithChildren) => {
   const nameParts = config.developer.fullName.split(" ");
@@ -67,13 +68,9 @@ const Landing = ({ children }: PropsWithChildren) => {
                 onMouseMove={handleMove}
                 onMouseLeave={handleLeave}
               >
-                <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
+                <ProfileImage alt={config.developer.fullName} />
               </div>
             </div>
-          </div>
-          {/* Mobile photo - shows only on mobile when 3D character is hidden */}
-          <div className="mobile-photo">
-            <img src={`${import.meta.env.BASE_URL}images/mypic.jpeg`} alt={config.developer.fullName} />
           </div>
         </div>
         {children}
